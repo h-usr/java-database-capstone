@@ -1,7 +1,7 @@
 
 # MySQL Database Design
 
-## Appointments table
+## Appointment table
 
 - id: INT, Primary Key, Auto Increment
 - doctor_id: INT, Foreign Key → doctors(id)
@@ -9,14 +9,14 @@
 - appointment_time: DATETIME, Not Null
 - status: INT (0 = Scheduled, 1 = Completed, 2 = Cancelled)
 
-## Patients table
+## Patient table
 
 - id: INT, Primary Key, Auto Increment
 - name: VARCHAR(100), Not Null
 - email: VARCHAR(100), Not Null, Unique
 - date_of_birth: DATE
 
-## Doctors table
+## Doctor table
 
 - id: INT, Primary Key, Auto Increment
 - name: VARCHAR(100), Not Null
