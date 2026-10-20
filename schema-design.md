@@ -12,9 +12,11 @@
 ## Patient table
 
 - id: INT, Primary Key, Auto Increment
-- name: VARCHAR(100), Not Null
-- email: VARCHAR(100), Not Null, Unique
-- date_of_birth: DATE
+- name: VARCHAR(100), Not Null, 3-100 characters
+- email: VARCHAR(255), Not Null, Unique, Valid email address
+- password: VARCHAR(255), Not Null, At least 6 characters, write-only in API responses
+- phone: VARCHAR(10), Not Null, Exactly 10 digits
+- address: VARCHAR(255), Not Null
 
 ## Doctor table
 
@@ -34,7 +36,7 @@
 
 - id: INT, Primary Key, Auto Increment
 - username: VARCHAR(50), Not Null, Unique
-- password_hash: VARCHAR(255), Not Null
+- password: VARCHAR(255), Not Null
 
 # MongoDB Collection Design
 
