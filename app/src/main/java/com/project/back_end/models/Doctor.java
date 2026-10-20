@@ -40,7 +40,7 @@ public class Doctor {
 	private String phone;
 
 	@ElementCollection
-	@CollectionTable(name = "DoctorAvailability", joinColumns = @JoinColumn(name = "doctor_id"))
+	@CollectionTable(name = "doctor_available_times", joinColumns = @JoinColumn(name = "doctor_id"))
 	@Column(name = "available_time", nullable = false)
 	private List<String> availableTimes = new ArrayList<>();
 
