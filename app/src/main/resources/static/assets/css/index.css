@@ -1,53 +1,259 @@
-/* this is the style sheet file for index.htlm  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* 
-**Global Reset (`*`)**
+html,
+body {
+  min-height: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
+}
 
-* Remove all default margin and padding.
-* Use `border-box` for sizing to include padding and border in element size.
+body {
+  min-height: 100vh;
+}
 
-**Base (`html, body`)**
+.container,
+.wrapper {
+  min-height: 100vh;
+}
 
-* Set height to 100% for full viewport layout.
-* Use the `'Roboto'` sans-serif font for modern, clean typography.
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
-**Layout Wrapper (`.wrapper`)**
+.main-content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 520px;
+  padding: 40px 24px;
+  text-align: center;
+  background-color: #dff4f1;
+  background-image: url('../images/defineRole/index.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
-* Use a vertical flexbox layout.
-* Ensure the wrapper covers at least the full height of the screen (`min-height: 100vh`).
+.main-content h2 {
+  margin: 0 0 30px;
+  color: #003e3e;
+  font-family: 'Alegreya', 'Roboto', Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+}
 
-**Heading (`h2`)**
+.main-content button,
+.dashboard-btn {
+  width: 200px;
+  min-height: 44px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #015c5d;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
 
-* Set a large font size (`48px`) for prominence.
-* Add a bottom margin of `50px` for spacing.
-* Use a dark teal color (`#003e3e`).
-* Make the font bold and use a blended font stack (`'Alegreya', 'Roboto', sans-serif`) for elegant styling.
+.main-content button:hover {
+  background-color: #a62b1f;
+  transform: translateY(-1px);
+}
 
-**Main Section (`.main-content`)**
+.dashboard-btn:hover {
+  background-color: #003e3e;
+}
 
-* Allow the section to grow to fill space with `flex-grow: 1`.
-* Add `40px` of internal padding.
-* Center content both horizontally and vertically using `justify-content` and `align-items`.
-* Display items in a column direction.
-* Center all text.
-* Apply a full-screen background image with:
+.main-content button:focus-visible,
+.dashboard-btn:focus-visible,
+#closeModal:focus-visible,
+.input-field:focus-visible,
+.select-dropdown:focus-visible {
+  outline: 3px solid #65cfc2;
+  outline-offset: 3px;
+}
 
-  * `cover` size
-  * `center` positioning
-  * no repeat
-  * `fixed` attachment to keep image still during scroll
+.header {
+  gap: 16px;
+}
 
-**Buttons (`button`)**
+.header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
-* Style with a teal green background (`#015c5d`) and white text.
-* Remove borders and round the corners (`12px`).
-* Use `10px 20px` padding and set width to `200px`.
-* Add a top margin of `10px` for spacing.
-* Enable pointer cursor and readable font size (`16px`).
-* On hover, change background color to bold red (`#A62B1F`).
+.footer-container {
+  align-items: flex-start;
+}
 
-**Dashboard Buttons (`.dashboard-btn`)**
+.modal {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: rgb(0 28 29 / 62%);
+}
 
-* Use the same base green background (`#015c5d`) as the default button.
-* On hover, darken the background to deep teal (`#003e3e`) for visual feedback.
- */
+.modal[hidden] {
+  display: none;
+}
+
+.container .modal .modal-content {
+  position: relative;
+  width: min(100%, 440px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  margin: 0;
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 18px 55px rgb(0 28 29 / 24%);
+}
+
+.modal-content h2 {
+  margin: 0 36px 20px 0;
+  color: #003e3e;
+  font-family: 'Alegreya', 'Roboto', Georgia, serif;
+  font-size: 32px;
+}
+
+.close,
+#closeModal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #526565;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover,
+#closeModal:hover {
+  background-color: #e7f5f2;
+  color: #003e3e;
+}
+
+.dashboard-btn {
+  width: 100%;
+}
+
+.input-field,
+.select-dropdown {
+  width: 100%;
+  min-height: 44px;
+  margin: 10px 0 16px;
+  padding: 10px 12px;
+  border: 1px solid #b8c9c7;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #203535;
+  font: inherit;
+  font-size: 16px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.input-field:hover,
+.select-dropdown:hover {
+  border-color: #015c5d;
+}
+
+.input-field:focus,
+.select-dropdown:focus {
+  border-color: #015c5d;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(1 92 93 / 16%);
+}
+
+.select-dropdown {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.select-dropdown option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.checkbox-group label {
+  color: #203535;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.checkbox-group input[type='checkbox'] {
+  margin-right: 8px;
+  accent-color: #015c5d;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    min-height: 440px;
+    padding: 32px 20px;
+    background-attachment: scroll;
+  }
+
+  .main-content h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .header nav {
+    width: 100%;
+  }
+
+  .footer-container,
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .container .modal .modal-content {
+    padding: 28px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
