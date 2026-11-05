@@ -110,7 +110,7 @@ window.loginPatient = async function () {
     const password = document.getElementById("password").value;
 
     const data = {
-      email,
+      identifier: email,
       password
     }
     console.log("loginPatient :: ", data)
